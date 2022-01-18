@@ -13,10 +13,18 @@ public class Player : MonoBehaviour
     private float _jumpHeight = 15f;
     private float _yVelocity;
     private bool _doubleJump = false;
+    private int _coins = 0;
+    private UIManager _uiManager;
+    public void IncrementCoins()
+    {
+        _coins++;
+        _uiManager.UpdateCoinDisplay(_coins);
+    }
     // Start is called before the first frame update
     void Start()
     {
         _controller = GetComponent<CharacterController>();
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
 
     // Update is called once per frame
