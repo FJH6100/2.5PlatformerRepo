@@ -14,7 +14,17 @@ public class Player : MonoBehaviour
     private float _yVelocity;
     private bool _doubleJump = false;
     private int _coins = 0;
+    private int _lives = 3;
     private UIManager _uiManager;
+
+    public void LoseLife()
+    {
+        if (_lives > 0)
+        {
+            _lives--;
+            _uiManager.UpdateLivesDisplay(_lives);
+        }
+    }
     public void IncrementCoins()
     {
         _coins++;
